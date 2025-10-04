@@ -13,7 +13,7 @@ export default function Home() {
         {/* Western-styled Navbar */}
         <nav className="flex flex-col gap-6 mb-8 p-4 bg-amber-200 border-4 border-amber-800 rounded-xl shadow-md">
           <NavLink
-            to="/bank"
+            to="/ranchero/bank"
             className={
               "flex px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition bg-amber-50 text-amber-900 hover:bg-amber-300"
             }
@@ -21,7 +21,7 @@ export default function Home() {
             💰 Bank
           </NavLink>
           <NavLink
-            to="/market"
+            to="/ranchero/market"
             className={
               "flex px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition bg-amber-50 text-amber-900 hover:bg-amber-300"
             }
@@ -29,7 +29,7 @@ export default function Home() {
             🐂 Veemarkt
           </NavLink>
           <NavLink
-            to="/bounties"
+            to="/ranchero/bounties"
             className={
               "flex px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition bg-amber-50 text-amber-900 hover:bg-amber-300"
             }
