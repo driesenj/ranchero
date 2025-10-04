@@ -8,10 +8,10 @@ export default function App() {
   return (
     <div className="p-4 max-w-6xl mx-auto">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/bank" element={<Bank />} />
-        <Route path="/market" element={<Market />} />
-        <Route path="/bounties" element={<Bounties />} />
+        <Route path="/ranchero/" element={<Home />} />
+        <Route path="/ranchero/bank" element={<Bank />} />
+        <Route path="/ranchero/market" element={<Market />} />
+        <Route path="/ranchero/bounties" element={<Bounties />} />
       </Routes>
     </div>
   );
