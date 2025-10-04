@@ -1,35 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import Bank from "./pages/Bank";
+import Market from "./pages/Market";
+import Bounties from "./pages/Bounties";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="p-4 max-w-6xl mx-auto">
+      {/* Western-styled Navbar */}
+      <nav className="flex justify-center gap-6 mb-8 p-4 bg-amber-200 border-4 border-amber-800 rounded-xl shadow-md">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition
+            ${
+              isActive
+                ? "bg-amber-800 text-amber-100"
+                : "bg-amber-50 text-amber-900 hover:bg-amber-300"
+            }`
+          }
+        >
+          🏜 Home
+        </NavLink>
+        <NavLink
+          to="/bank"
+          className={({ isActive }) =>
+            `px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition
+            ${
+              isActive
+                ? "bg-amber-800 text-amber-100"
+                : "bg-amber-50 text-amber-900 hover:bg-amber-300"
+            }`
+          }
+        >
+          💰 Bank
+        </NavLink>
+        <NavLink
+          to="/market"
+          className={({ isActive }) =>
+            `px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition
+            ${
+              isActive
+                ? "bg-amber-800 text-amber-100"
+                : "bg-amber-50 text-amber-900 hover:bg-amber-300"
+            }`
+          }
+        >
+          🐂 Veemarkt
+        </NavLink>
+        <NavLink
+          to="/bounties"
+          className={({ isActive }) =>
+            `px-4 py-2 font-bold uppercase tracking-widest border-2 border-amber-800 rounded-md transition
+            ${
+              isActive
+                ? "bg-amber-800 text-amber-100"
+                : "bg-amber-50 text-amber-900 hover:bg-amber-300"
+            }`
+          }
+        >
+          🐂 Premies
+        </NavLink>
+      </nav>
 
-export default App
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/bank" element={<Bank />} />
+        <Route path="/market" element={<Market />} />
+        <Route path="/bounties" element={<Bounties />} />
+      </Routes>
+    </div>
+  );
+}
