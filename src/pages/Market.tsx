@@ -148,7 +148,7 @@ export default function Market() {
                 key={i}
                 className="flex justify-between border-b border-amber-700 pb-1"
               >
-                <span className="text-sm text-gray-600 pr-1">
+                <span className="text-sm text-gray-600 pr-2">
                   [{entry.time}]
                 </span>
                 <span className="flex-1">
