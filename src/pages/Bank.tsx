@@ -3,6 +3,88 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type Accounts = Record<string, number>;
 
+const questions = [
+  {
+    question: "Wat is de gemiddelde draagtijd van een koe in maanden? ",
+    answer: "Ongeveer 9 maanden",
+  },
+  {
+    question:
+      "Welk koeienras staat bekend om zijn dubbele spieren en komt oorspronkelijk uit België? ",
+    answer: "Belgian Blue",
+  },
+  {
+    question: "Wat is de term voor een mannelijk rund dat gecastreerd is? ",
+    answer: "Os of stier ",
+  },
+  {
+    question: "Welk orgaan van een koe heeft vier compartimenten? ",
+    answer: "De maag (pens, netmaag, boekmaag en lebmaag)",
+  },
+  { question: "Hoeveel boventanden heeft een koe? ", answer: "0" },
+  {
+    question: "Welk koeienras is het populairst voor vleesproductie in de VS? ",
+    answer: "Angus (Black Angus)",
+  },
+  {
+    question: "Wat is 'marbling' in rundvlees? ",
+    answer: "Intramusculair vet dat zorgt voor mals en smaakvol vlees",
+  },
+  { question: "Hoe heet het geluid dat een koe maakt?", answer: "Loeien" },
+  {
+    question: "zijn er meer koeien of mensen op de wereld",
+    answer: "mensen (8 miljard vs 1.6 miljard koeien)",
+  },
+  {
+    question: "Kunnen koeien ouder worden dan 10 jaar?",
+    answer: "Ja, 15 tot 20 jaar",
+  },
+  {
+    question: "Welke koe staat bekend om haar zwart-witte vlekken?",
+    answer: "Holstein",
+  },
+  { question: "Kunnen koeien zwemmen?", answer: "Ja, ze zijn goede zwemmers" },
+  {
+    question: "Wat is het grootste orgaan van een koe?",
+    answer: "De pens(maag)",
+  },
+  {
+    question: "Wie is sneller: Nijlpaard of koe",
+    answer: "Koe (40km/u) nijlpaard maar 30 km/u op land",
+  },
+  {
+    question:
+      "Hoe lang duurt het voor een kalf om zelfstandig te kunnen lopen na de geboorte? Minuut – Uur – Dag of Week?",
+    answer: "1–2 Uur.",
+  },
+  {
+    question: "Kunnen koeien een trap oplopen",
+    answer: "Ja, maar veel beter naar boven dan naar beneden",
+  },
+  { question: "Slapen koeien staand of liggend", answer: "Allebei" },
+  {
+    question:
+      "Hoe heet de speciale manier waarop koeien hun voedsel extra goed verteren",
+    answer: "Herkauwen",
+  },
+  {
+    question:
+      "Welk dier is de dichtste familie van de koe: Hond, Walvis, Varken",
+    answer: "Walvis",
+  },
+  {
+    question: "Hoeveel vingerachtige aanhangsels heeft een koe?",
+    answer: "4 “vingers” per poot: 2 hoeven en 2 wolfsklauwen",
+  },
+];
+
+const tasks = [
+  "Hekkes bouwen: 10 nagels in een blok hout slaan",
+  "Koeien herderen: 2 banden naar de andere kant van de wei slepen",
+  "Uiers melken: Vul een glas adhv een uier (handschoen). Uier moet overleven",
+  "Grazen: Vul een potje met gras",
+];
+
 export default function Bank() {
   const [accounts, setAccounts] = useLocalStorage<Accounts>("accounts", {});
   const [name, setName] = useState("");
@@ -54,6 +136,16 @@ export default function Bank() {
     return () => clearInterval(interval);
   }, [setAccounts]);
 
+  const easy = () => {
+    const q = questions[Math.floor(Math.random() * questions.length)];
+    alert("VRAAG: " + q.question);
+    alert("ANTWOORDD: " + q.answer);
+  };
+
+  const hard = () => {
+    alert(tasks[Math.floor(Math.random() * tasks.length)]);
+  };
+
   return (
     <>
       <div className="border-amber-800 rounded-xl p-6 max-w-2xl mx-auto font-serif text-center">
@@ -63,6 +155,20 @@ export default function Bank() {
           style={{ width: 400, maxWidth: "100%" }}
         >
           OVERVAL!
+        </button>
+        <button
+          onClick={easy}
+          className="bg-green-400 mt-2 text-gray-200 px-4 py-2 rounded-md border-2 border-amber-800 hover:bg-gray-900 transition"
+          style={{ width: 400, maxWidth: "100%" }}
+        >
+          Weiland Vraag (makkelijk)!
+        </button>
+        <button
+          onClick={hard}
+          className="bg-lime-800 mt-2 text-gray-200  px-4 py-2 rounded-md border-2 border-amber-800 hover:bg-gray-900 transition"
+          style={{ width: 400, maxWidth: "100%" }}
+        >
+          Weiland Opdracht (moeilijk)!
         </button>
       </div>
       <div className="bg-amber-100 border-8 border-amber-800 rounded-xl shadow-lg p-6 max-w-2xl mx-auto font-serif">
